@@ -9,6 +9,7 @@
     <dimen name="dp_16">16dp</dimen>
     <dimen name="dp_32">32dp</dimen>
     <dimen name="dp_64">64dp</dimen>
+    <dimen name="dp_164">164dp</dimen>
 
     <!-- sp sizes -->
     <dimen name="sp_14">14sp</dimen>

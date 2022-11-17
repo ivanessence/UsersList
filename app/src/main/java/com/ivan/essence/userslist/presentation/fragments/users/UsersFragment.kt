@@ -65,10 +65,6 @@ class UsersFragment : BaseFragment<FragmentUsersBinding, UsersViewModel>() {
         }
     }
 
-    private fun onUserClick(userData: UserData) {
-        navigateTo(R.id.action_users_to_user_details, bundleOf("userData" to userData ) )
-    }
-
     private fun setupToolbar() {
         toolbar?.let { toolbar ->
             toolbar.title = getString(R.string.app_name)
@@ -83,5 +79,9 @@ class UsersFragment : BaseFragment<FragmentUsersBinding, UsersViewModel>() {
                 }
             }
         }
+    }
+
+    private fun onUserClick(userData: UserData) {
+        navigateTo(R.id.action_users_to_user_details, bundleOf("userData" to userData ) )
     }
 }

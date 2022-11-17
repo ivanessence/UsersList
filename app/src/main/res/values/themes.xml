@@ -23,6 +23,9 @@
         <!-- Config -->
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+
+        <!-- Splash -->
+        <item name="android:windowSplashScreenBackground"></item>
     </style>
 
 </resources>

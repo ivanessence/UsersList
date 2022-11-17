@@ -6,7 +6,7 @@ import com.ivan.essence.userslist.data.repositories.RemoteRepositoryImpl
 import com.ivan.essence.userslist.domain.repositories.RemoteRepository
 import com.ivan.essence.userslist.domain.usecases.PostsUseCase
 import com.ivan.essence.userslist.domain.usecases.UsersUseCase
-import com.ivan.essence.userslist.presentation.fragments.postDetails.PostDetailsViewModel
+import com.ivan.essence.userslist.presentation.fragments.postDetails.UserDetailsViewModel
 import com.ivan.essence.userslist.presentation.fragments.users.UsersViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -49,7 +49,7 @@ val networkModule = module {
 
 val viewModelsModule = module {
     viewModel { UsersViewModel(usersUseCase = get(), postsUseCase = get()) }
-    viewModel { PostDetailsViewModel() }
+    viewModel { UserDetailsViewModel() }
 }
 
 val repositoriesModule = module {

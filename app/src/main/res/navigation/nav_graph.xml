@@ -14,25 +14,18 @@
             android:id="@+id/action_users_to_user_details"
             app:destination="@id/user_details_fragment"
             app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim" >
-
-            <argument
-                android:name="userData"
-                app:argType="com.ivan.essence.userslist.data.entities.UserPost"
-                app:nullable="false"/>
-
-        </action>
+            app:exitAnim="@anim/nav_default_exit_anim" />
 
     </fragment>
 
     <fragment
         android:id="@+id/user_details_fragment"
-        android:name="com.ivan.essence.userslist.presentation.fragments.postDetails.PostDetailsFragment"
+        android:name="com.ivan.essence.userslist.presentation.fragments.postDetails.UserDetailsFragment"
         tools:layout="@layout/fragment_user_details">
 
         <argument
             android:name="userData"
-            app:argType="com.ivan.essence.userslist.data.entities.UserPost"
+            app:argType="com.ivan.essence.userslist.data.entities.UserData"
             app:nullable="false"/>
 
     </fragment>
