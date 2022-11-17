@@ -11,5 +11,5 @@ interface AppAPI {
     suspend fun getUsers(): List<User>
 
     @GET("/SharminSirajudeen/test_resources/posts")
-    fun getPosts(): Call<List<Post>>
+    suspend fun getPosts(): List<Post>
 }

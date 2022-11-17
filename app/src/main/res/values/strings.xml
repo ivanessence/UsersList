@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">UsersList</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- Users fragment -->
+    <string name="user_posts_count">Posts count: %d</string>
+    <string name="info">Info</string>
+    <string name="app_version">App version: %s</string>
+
+    <!-- Post details fragment -->
+
 </resources>

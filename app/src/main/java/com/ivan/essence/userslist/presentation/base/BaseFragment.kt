@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
+import com.google.android.material.appbar.MaterialToolbar
 
 abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
 
@@ -14,6 +15,8 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
     protected val binding get() = _binding!!
 
     protected abstract val viewModel: VM
+
+    protected abstract val toolbar: MaterialToolbar?
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -25,8 +28,8 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        initView()
         initObservers()
+        initView()
     }
 
     override fun onDestroyView() {
@@ -40,7 +43,7 @@ abstract class BaseFragment<VB : ViewBinding, VM : BaseViewModel> : Fragment() {
 
     protected open fun initObservers() {}
 
-    protected fun navigateTo(destination: Int) {
-        findNavController().navigate(destination)
+    protected fun navigateTo(destination: Int, bundle: Bundle? = null) {
+        findNavController().navigate(destination, bundle)
     }
 }
