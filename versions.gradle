@@ -5,6 +5,7 @@ ext {
             coroutines_version : '1.6.4',
             koin_version : '3.1.6',
             retrofit_version : '2.9.0',
-            okhttp3_version : '4.10.0'
+            okhttp3_version : '4.10.0',
+            glide_version : '4.14.2'
     ]
 }

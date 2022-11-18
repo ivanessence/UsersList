@@ -25,13 +25,28 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    applicationVariants.all{
+        variant ->
+            variant.outputs.each{
+                output->
+                    project.ext { appName = 'UsersList' }
+                    def formattedDate = new Date().format('yyyy-MM-dd')
+                    def newName = output.outputFile.name
+                    newName = newName.replace("app-", "$project.ext.appName-" + formattedDate + "-")
+                    output.outputFileName  = newName
+            }
+    }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    
     buildFeatures {
         viewBinding true
     }
@@ -62,11 +77,11 @@ dependencies {
     implementation "com.squareup.retrofit2:converter-gson:$versions.retrofit_version"
     implementation "com.squareup.okhttp3:okhttp:$versions.okhttp3_version"
     implementation "com.squareup.okhttp3:logging-interceptor:$versions.okhttp3_version"
+    implementation "com.github.bumptech.glide:glide:$versions.glide_version"
+    annotationProcessor "com.github.bumptech.glide:compiler:$versions.glide_version"
 
     // Views
     implementation 'de.hdodenhof:circleimageview:3.1.0'
-    implementation 'com.github.bumptech.glide:glide:4.14.2'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
 
     // Testing
     testImplementation 'junit:junit:4.13.2'

@@ -1,7 +1,6 @@
 package com.ivan.essence.userslist.presentation.fragments.users
 
 import androidx.lifecycle.viewModelScope
-import com.ivan.essence.userslist.data.dto.Post
 import com.ivan.essence.userslist.data.entities.UserData
 import com.ivan.essence.userslist.data.entities.UserPost
 import com.ivan.essence.userslist.domain.usecases.PostsUseCase
@@ -39,7 +38,7 @@ class UsersViewModel(
                 ) {
                     _usersData.emit(
                         SuccessOrError.Success(
-                            matchUsersToPosts(
+                            getMatchedUsersWithPosts(
                                 usersResult.value,
                                 postsResult.value
                             )
@@ -50,7 +49,7 @@ class UsersViewModel(
         }
     }
 
-    private fun matchUsersToPosts(usersData: List<UserData>, posts: List<UserPost>): List<UserData> {
+    private fun getMatchedUsersWithPosts(usersData: List<UserData>, posts: List<UserPost>): List<UserData> {
         val usersId = usersData.map {
             it.userId
         }

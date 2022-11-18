@@ -20,13 +20,13 @@
 
     <fragment
         android:id="@+id/user_details_fragment"
-        android:name="com.ivan.essence.userslist.presentation.fragments.postDetails.UserDetailsFragment"
+        android:name="com.ivan.essence.userslist.presentation.fragments.userDetails.UserDetailsFragment"
         tools:layout="@layout/fragment_user_details">
 
         <argument
             android:name="userData"
             app:argType="com.ivan.essence.userslist.data.entities.UserData"
-            app:nullable="false"/>
+            app:nullable="false" />
 
     </fragment>
 

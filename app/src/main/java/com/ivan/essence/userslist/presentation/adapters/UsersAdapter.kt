@@ -2,6 +2,7 @@ package com.ivan.essence.userslist.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -11,7 +12,7 @@ import com.ivan.essence.userslist.R
 import com.ivan.essence.userslist.data.entities.UserData
 import com.ivan.essence.userslist.databinding.ItemUserBinding
 
-class UsersAdapter(private val click: (userData: UserData) -> Unit) :
+class UsersAdapter(private val onClick: (userData: UserData) -> Unit) :
     ListAdapter<UserData, UsersAdapter.UsersViewHolder>(
         DiffCallback()
     ) {
@@ -30,7 +31,11 @@ class UsersAdapter(private val click: (userData: UserData) -> Unit) :
         holder: UsersAdapter.UsersViewHolder,
         position: Int
     ) {
-        holder.bind(getItem(position))
+        with(holder) {
+            itemView.animation =
+                AnimationUtils.loadAnimation(holder.itemView.context, R.anim.item_animation)
+            bind(getItem(position))
+        }
     }
 
     inner class UsersViewHolder(private val binding: ItemUserBinding) :
@@ -41,7 +46,7 @@ class UsersAdapter(private val click: (userData: UserData) -> Unit) :
             userName.text = item.name
             userPostsAmount.text = root.context.getString(R.string.user_posts_count, item.posts.size)
             root.setOnClickListener {
-                click(item)
+                onClick(item)
             }
         }
 

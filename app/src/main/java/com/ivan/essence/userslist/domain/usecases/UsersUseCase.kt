@@ -11,15 +11,17 @@ class UsersUseCase(private val remoteRepository: RemoteRepository) {
     suspend fun invoke(): SuccessOrError<List<UserData>, Throwable> {
         return remoteRepository.fetchUsers().transform { result ->
             emit(
-                result.mapResult { it.map { dto ->
-                    UserData(
-                        userId = dto.userId,
-                        name = dto.name,
-                        url = dto.url,
-                        thumbnailUrl = dto.thumbnailUrl,
-                        mutableListOf()
-                    )
-                } }
+                result.mapResult {
+                    it.map { dto ->
+                        UserData(
+                            userId = dto.userId,
+                            name = dto.name,
+                            url = dto.url,
+                            thumbnailUrl = dto.thumbnailUrl,
+                            mutableListOf()
+                        )
+                    }
+                }
             )
         }.first()
     }

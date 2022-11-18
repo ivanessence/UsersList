@@ -42,9 +42,12 @@ class UsersFragment : BaseFragment<FragmentUsersBinding, UsersViewModel>() {
                     is SuccessOrError.Success -> {
                         adapter.submitList(it.value)
                         progress.hide()
+                        error.hide()
                     }
                     is SuccessOrError.Error -> {
+                        adapter.submitList(emptyList())
                         progress.hide()
+                        error.show()
                     }
                     is SuccessOrError.Loading -> {
                         progress.show()

@@ -1,10 +1,11 @@
-package com.ivan.essence.userslist.presentation.fragments.postDetails
+package com.ivan.essence.userslist.presentation.fragments.userDetails
 
 import androidx.core.content.ContextCompat
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.target.Target.SIZE_ORIGINAL
 import com.google.android.material.appbar.MaterialToolbar
 import com.ivan.essence.userslist.R
@@ -58,6 +59,7 @@ class UserDetailsFragment : BaseFragment<FragmentUserDetailsBinding, UserDetails
         Glide
             .with(requireContext())
             .load(args.userData.url)
+            .transition(DrawableTransitionOptions.withCrossFade())
             .override(SIZE_ORIGINAL)
             .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
             .placeholder(R.drawable.ic_user_placeholder)

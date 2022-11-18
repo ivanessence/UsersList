@@ -6,7 +6,7 @@ import com.ivan.essence.userslist.data.repositories.RemoteRepositoryImpl
 import com.ivan.essence.userslist.domain.repositories.RemoteRepository
 import com.ivan.essence.userslist.domain.usecases.PostsUseCase
 import com.ivan.essence.userslist.domain.usecases.UsersUseCase
-import com.ivan.essence.userslist.presentation.fragments.postDetails.UserDetailsViewModel
+import com.ivan.essence.userslist.presentation.fragments.userDetails.UserDetailsViewModel
 import com.ivan.essence.userslist.presentation.fragments.users.UsersViewModel
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -27,7 +27,7 @@ val networkModule = module {
         .readTimeout(TIMEOUT, TimeUnit.SECONDS)
         .addInterceptor(HttpLoggingInterceptor().apply {
             level = if (BuildConfig.DEBUG) HttpLoggingInterceptor.Level.BODY
-            else HttpLoggingInterceptor.Level.BODY
+            else HttpLoggingInterceptor.Level.NONE
         })
         .build()
 

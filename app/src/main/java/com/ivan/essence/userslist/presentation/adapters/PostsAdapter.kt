@@ -2,16 +2,13 @@ package com.ivan.essence.userslist.presentation.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import android.view.animation.AnimationUtils
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.ivan.essence.userslist.R
-import com.ivan.essence.userslist.data.entities.UserData
 import com.ivan.essence.userslist.data.entities.UserPost
 import com.ivan.essence.userslist.databinding.ItemPostBinding
-import com.ivan.essence.userslist.databinding.ItemUserBinding
 
 class PostsAdapter :
     ListAdapter<UserPost, PostsAdapter.PostsViewHolder>(
@@ -32,7 +29,11 @@ class PostsAdapter :
         holder: PostsAdapter.PostsViewHolder,
         position: Int
     ) {
-        holder.bind(getItem(position))
+        with(holder) {
+            itemView.animation =
+                AnimationUtils.loadAnimation(holder.itemView.context, R.anim.item_animation)
+            bind(getItem(position))
+        }
     }
 
     inner class PostsViewHolder(private val binding: ItemPostBinding) :

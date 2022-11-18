@@ -1,10 +1,13 @@
 <resources>
+
+    <!-- Common -->
     <string name="app_name">UsersList</string>
 
     <!-- Users fragment -->
     <string name="user_posts_count">Posts count: %d</string>
     <string name="info">Info</string>
     <string name="app_version">App version: %s</string>
+    <string name="error">Something went wrong. Please try again.</string>
 
     <!-- Post details fragment -->
     <string name="list_of_posts">List of posts for %s</string>

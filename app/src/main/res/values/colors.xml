@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="blue_hard">#0080FF</color>
-    <color name="status_bar">#D0E0F4</color>
+    <color name="blue">#0080FF</color>
+    <color name="status">#D0E0F4</color>
     <color name="black">#000000</color>
     <color name="bg_blue">#D9E6F6</color>
-    <color name="text_black">#434D57</color>
+    <color name="text_body">#434D57</color>
+    <color name="text_title">#3F51B5</color>
+    <color name="icon_tint">#3F51B5</color>
 </resources>
